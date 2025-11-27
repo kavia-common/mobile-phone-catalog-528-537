@@ -1,73 +1,188 @@
-# Lightweight Mobile Phone Catalogue – React, Modern UI
+# Mobile Phone Catalogue – Static React App
 
-A static catalogue of mobile phones built with React, featuring a modern UI, accessibility, and user-friendly enhancements.
+A modern, fully static React web application cataloguing mobile phones. This app delivers a responsive, accessible, user-friendly experience with features like search, sorting, pagination, favorites, theme toggle, and optimized performance — all without any backend or API dependencies.
+
+---
+
+## Overview
+
+This project presents a visually appealing catalogue of mobile phones, each displayed with a name, image, and short description. The app is designed for static hosting and requires no database or server. Users can interactively search phones, sort, paginate, mark favorites, and enjoy accessibility and performance optimizations out-of-the-box.
+
+---
 
 ## Features
 
-- **Responsive Catalogue UI**: Grid of phone cards (image, name, description).
-- **Live Search**: Filter phones by name instantly.
-- **Sorting**: Sort phones by name (A-Z/Z-A).
-- **Simple Pagination**: Next/previous buttons, page numbers. Default: 4 per page for demo.
-- **Favorites**: Mark/unmark phones as favorite ("★"), with persistent storage (localStorage). Dedicated favorites grid.
-- **Theme Toggle**: Switch between light and dark modes (top right).
-- **Accessibility**:
-  - All controls and cards reachable by keyboard (Tab/arrow keys).
-  - Proper ARIA roles, aria-labels, and aria-live regions for dynamic results.
-  - Visible focus states/high contrast.
-- **Optimized Images**: All photos use `loading="lazy"` and have explicit sizes set.
-- **Performance**: List rendering is memoized and avoids unnecessary re-renders.
-- **Mobile-First**: Fully responsive for phones/tablets.
-- **Vanilla CSS**: No UI frameworks; all styles in `src/App.css`.
-- **Minimal Dependencies**: Pure React and CSS for fast load times.
+- **Responsive UI:** Phone "cards" are shown in a grid layout, adapting fluidly to different screens, from smartphones to large desktops.
+- **Navbar:** Top bar displays project/app name, anchoring navigation and theme toggle.
+- **Live Search Filter:** Instantly filters the visible phones as you type.
+- **Sorting:** Sort phones alphabetically (A–Z, Z–A) using the accessible dropdown menu.
+- **Pagination:** Browse results in pages (default: 4 per page), with Next/Previous buttons and visible page numbers for easy navigation.
+- **Favorites:** Star/unstar phones to save your favorites, which persist across sessions via `localStorage`. View your favorites in a separate section.
+- **Theme Toggle:** Instantly switch between light and dark modes using the control at the top-right corner. Theme is saved for future visits.
+- **Accessibility Enhancements:**
+  - All interactive elements (buttons, cards, dropdowns) are keyboard navigable.
+  - Correct ARIA roles, labels, and a live region announce search results and "no results" dynamically for screen readers.
+  - Focus outlines and good color contrast are enforced for clarity.
+  - Special handling for keyboard grid navigation and focus management.
+- **Performance Optimizations:**
+  - Images use `loading="lazy"` and explicit dimensions to prevent layout shift.
+  - Rendering of lists/cards is memoized to avoid unnecessary React re-renders.
+  - Minimal dependence on third-party libraries ensures fast load (only small React/CSS core).
+- **Data:** All phone catalogue data is loaded from a static JSON file for zero backend setup.
+
+---
 
 ## Getting Started
 
-In the project directory, you can run:
+### Prerequisites
 
-### `npm start`
+- [Node.js](https://nodejs.org/) (v14+, recommended)
+- [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/) (either is supported; scripts use npm by default)
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Local Development
 
-### `npm test`
+Clone/download the repository and navigate into the `web_frontend` directory. Then:
 
-Launches the test runner in interactive watch mode.
+```bash
+# Install dependencies
+npm install
 
-### `npm run build`
+# Start the development server
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It optimizes the build for performance.
+Visit [http://localhost:3000](http://localhost:3000) to view the app locally. Most platforms automatically manage the preview and rebuild.
 
-## Customization
+### Running Tests
 
-#### Colors & Theme
+```bash
+npm test
+```
+Launches the test runner (based on Jest/React Testing Library).
 
-Theme CSS variables are defined in `src/App.css`. The default light palette adheres to the project style guide and can be adjusted easily.
+### Production Build
 
-- Change any color in `:root` or `[data-theme="dark"]` for your brand.
+```bash
+npm run build
+```
+Compiles an optimized static build in the `build/` folder, suitable for static hosting.
 
-#### Components
+---
 
-Common custom classes:
-- `.btn`, `.btn-active` – Buttons/paging
-- `.phone-card`, `.fav-btn` – Card/favorite controls
-- `.main-content`, `.navbar` – Layout/navigation
+## Configuration
+
+This app is intended to operate entirely with static content. Several `REACT_APP_*` environment variables are present (for alignment with typical React setups):
+
+- `REACT_APP_API_BASE`
+- `REACT_APP_BACKEND_URL`
+- `REACT_APP_FRONTEND_URL`
+- `REACT_APP_WS_URL`
+- `REACT_APP_NODE_ENV`
+- `REACT_APP_NEXT_TELEMETRY_DISABLED`
+- `REACT_APP_ENABLE_SOURCE_MAPS`
+- `REACT_APP_PORT`
+- `REACT_APP_TRUST_PROXY`
+- `REACT_APP_LOG_LEVEL`
+- `REACT_APP_HEALTHCHECK_PATH`
+- `REACT_APP_FEATURE_FLAGS`
+- `REACT_APP_EXPERIMENTS_ENABLED`
+
+> **Note**: For this project, you do **not** need to set any of these variables; they are unused since all functionality is local and static. You may leave values as-is in `.env` or ignore them.
+
+---
+
+## Usage Guide
+
+### Navigation
+
+- **Search:** Type part of a phone’s name into the search bar. Results update instantly. The result count is announced to screen readers via a live region.
+- **Sorting:** Use the “Sort” dropdown to order phones A–Z or Z–A.
+- **Pagination:** Use the Next/Previous buttons or click page numbers to navigate through results (4 per page default).
+- **Marking Favorites:** Click the star (☆) on any card to favorite it, or the filled star (★) to unfavorite. Your selections are saved (and shown) in a dedicated “Favorites” section.
+- **Theme Toggle:** Use the button (🌙/☀️) at the top-right to switch between light and dark mode. Choice is saved in your browser.
+
+### Accessibility – Keyboard Tips
+
+- **Tab**: Move focus between search, sort dropdown, theme toggle, and grid.
+- **Arrow Keys**: With a card focused, use arrow keys (←, →, ↑, ↓) to move through the grid.
+- **Enter/Space**: On a focused card, opens focus; on the star button, toggles favorite.
+- **Screen Reader**: Search results (or “No phones found”) are announced dynamically; all controls are labeled.
+
+---
+
+## Directory Structure
+
+```
+web_frontend/
+  ├── src/
+  │    ├── components/
+  │    │     ├── Navbar.js, Navbar.css       # Top navigation bar
+  │    │     ├── PhoneCard.js, PhoneCard.css # Individual phone cards
+  │    ├── data/
+  │    │     └── phones.json                 # Static phone data list
+  │    ├── App.js, App.css                   # Main app logic & global styles
+  │    ├── index.js, index.css               # Entry point & defaults
+  │    └── setupTests.js                     # React Testing Library setup
+  ├── public/
+  │    └── assets/                           # Images referenced by phone data (e.g. s21.jpg)
+  ├── package.json, README.md, etc.
+```
+
+- **Add new phones** to `src/data/phones.json`. Each entry requires an `id`, `name`, `image` path (`/assets/`), and a `shortDescription`.
+- **Images**: Image files referenced in data (e.g., `/assets/s21.jpg`) should be added under `public/assets/`.
+- **Components**: Custom structure or new features belong under `src/components`.
+
+---
 
 ## Accessibility Notes
 
-- Search box announces results live (screen readers).
-- Use Tab/arrow keys to navigate cards; favorite/unfavorite with star buttons (Enter/Space).
-- All pagination/controls have accessible labels.
+- Every button/input has a logical ARIA label and role.
+- The app uses an invisible “live region” to announce search results and no-results to assistive technology.
+- Strong color contrast and visual focus outlines make navigation clear.
+- Cards and controls are all reachable via Tab or Arrow keys; favorite actions are accessible without a mouse.
+- The grid structure is presented clearly to both visual and screen reader users.
 
-## Known Limitations
+---
 
-- No backend/API: All data is static from `src/data/phones.json`.
-- Images must be placed in `/public/assets/`.
-- Not a PWA; no offline support.
-- No advanced filters/sorting (only by name).
-- Pagination is static (no infinite scroll).
+## Performance and Optimization
 
-## Learn More
+- **Image Loading:** All catalogue images use lazy loading (`loading="lazy"`) and explicit width/height to prevent jank.
+- **Efficient Rendering:** Filtering, sorting, and favorites functionality are memoized (`useMemo`, React.memo) to minimize expensive renders.
+- **Lightweight:** No extra UI library or dependency bloat ensures fast startup and smooth navigation.
 
-Check the [React documentation](https://reactjs.org/) for further customization tips.
+**Tip:** When adding new images, use compressed, web-optimized photos (e.g. JPEG, WebP, ~50–100KB), sized to ~300x500px for consistent appearance and fast load.
 
+---
+
+## Known Limitations and Future Enhancements
+
+- **Static Only:** No backend or real-time content changes; data and images are static.
+- **Image Handling:** All images must be placed manually in `/public/assets/`.
+- **Sorting:** Only name-based sorting; no filter by brand, price, specs, etc.
+- **Pagination:** Static (no infinite scroll or dynamic page size).
+- **Testing:** No thorough unit or integration tests yet (basic test scaffold in place). PRs to improve coverage are welcome.
+- **Not PWA:** No offline support/service workers.
+- **Accessibility:** Continues to evolve—edge cases (like tooltip or error announcements) may need further ARIA work.
+
+---
+
+## Contributing
+
+To add new phones, contribute styles, or implement a feature:
+
+- Use the structure in `src/data/phones.json` for data and `public/assets/` for images.
+- Follow the style set in `App.css` and components for consistency.
+- Submit changes as pull requests for review; include details on what’s added or improved.
+- For accessibility, test via keyboard and screen reader, and note any ARIA or navigation improvements in your PR.
+
+---
+
+## Further Resources
+
+- [React documentation](https://reactjs.org/)
+- [MDN: ARIA and accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
+- [Static site deployment (Netlify/Vercel/GitHub Pages)](https://docs.netlify.com/site-deploys/overview/)
+
+---
+
+Task completed: web_frontend container README now gives a full, current, and practical overview for developers and users.
