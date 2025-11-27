@@ -10,6 +10,60 @@ This project presents a visually appealing catalogue of mobile phones, each disp
 
 ---
 
+## Usage
+
+This section provides practical, step-by-step instructions for using the Mobile Phone Catalogue app.
+
+### Navigating the Catalogue
+
+- The main screen displays a grid of phones, each in a card with an image, name, and brief description.
+- The top navigation bar displays the app name and the theme toggle button (🌙/☀️).
+
+### Searching
+
+- Use the search bar at the top of the catalogue to filter phones by name.
+- As you type, the grid updates instantly to show only matching phones.
+- If no phones match your search, a “No phones found.” message will appear and is announced by screen readers.
+
+### Sorting
+
+- Use the “Sort” dropdown (A–Z or Z–A) above the grid to control the phone order alphabetically.
+- Changing the sorting resets to the first page of results.
+
+### Pagination Controls
+
+- If there are more phones than fit a single page, numbered buttons and “<”, “>” (previous/next) arrows appear below the grid.
+- Click a page number to jump directly, or use previous/next buttons to move between pages.
+- Pagination respects any ongoing search or sort settings.
+
+### Managing Favorites
+
+- Each phone card has a star icon (☆/★). Click to mark a phone as a favorite (★). Click again to remove it (☆).
+- Your favorite selections are stored using your browser’s `localStorage`—they persist even if you close and reopen the app or browser.
+- All favorites are displayed in a separate section beneath the catalogue for easy reference.
+
+**Note:** Clearing localStorage (in your browser settings) or switching browsers/devices will reset your favorite selections.
+
+### Toggling Themes
+
+- Click the theme toggle button (top right) to switch between light and dark mode. The button icon switches from sun (☀️) to moon (🌙).
+- The app remembers your chosen theme via localStorage and browser preferences.
+
+### Keyboard Accessibility Tips
+
+- `Tab` to move focus between the navigation bar, theme toggle, search, sort, and into the grid.
+- Within the grid, `Arrow` keys (←/→/↑/↓) move focus across cards. `Enter` or `Space` on a card’s star icon toggles its favorite status.
+- Pagination buttons and the theme toggle are fully accessible by keyboard.
+
+### Troubleshooting Common Issues
+
+- **No Results:** If the search yields no matches, check your spelling or try a broader term. Clearing the search bar will restore the full phone list.
+- **Missing Images:** If a card image appears broken or missing, ensure that the referenced file exists in `public/assets/` and matches the file name in `src/data/phones.json`.
+- **Favorites Not Saved:** If your favorite selections disappear unexpectedly, confirm that your browser allows localStorage or hasn’t been cleared.
+- **Display Issues:** Refresh the page to resolve most layout issues. For persistent problems, clear your browser cache.
+
+---
+
 ## Features
 
 - **Responsive UI:** Phone "cards" are shown in a grid layout, adapting fluidly to different screens, from smartphones to large desktops.
