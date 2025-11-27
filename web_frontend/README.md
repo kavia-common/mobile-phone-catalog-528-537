@@ -1,13 +1,24 @@
-# Lightweight React Template for KAVIA
+# Lightweight Mobile Phone Catalogue – React, Modern UI
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A static catalogue of mobile phones built with React, featuring a modern UI, accessibility, and user-friendly enhancements.
 
 ## Features
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- **Responsive Catalogue UI**: Grid of phone cards (image, name, description).
+- **Live Search**: Filter phones by name instantly.
+- **Sorting**: Sort phones by name (A-Z/Z-A).
+- **Simple Pagination**: Next/previous buttons, page numbers. Default: 4 per page for demo.
+- **Favorites**: Mark/unmark phones as favorite ("★"), with persistent storage (localStorage). Dedicated favorites grid.
+- **Theme Toggle**: Switch between light and dark modes (top right).
+- **Accessibility**:
+  - All controls and cards reachable by keyboard (Tab/arrow keys).
+  - Proper ARIA roles, aria-labels, and aria-live regions for dynamic results.
+  - Visible focus states/high contrast.
+- **Optimized Images**: All photos use `loading="lazy"` and have explicit sizes set.
+- **Performance**: List rendering is memoized and avoids unnecessary re-renders.
+- **Mobile-First**: Fully responsive for phones/tablets.
+- **Vanilla CSS**: No UI frameworks; all styles in `src/App.css`.
+- **Minimal Dependencies**: Pure React and CSS for fast load times.
 
 ## Getting Started
 
@@ -25,58 +36,38 @@ Launches the test runner in interactive watch mode.
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+It optimizes the build for performance.
 
 ## Customization
 
-### Colors
+#### Colors & Theme
 
-The main brand colors are defined as CSS variables in `src/App.css`:
+Theme CSS variables are defined in `src/App.css`. The default light palette adheres to the project style guide and can be adjusted easily.
 
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
+- Change any color in `:root` or `[data-theme="dark"]` for your brand.
 
-### Components
+#### Components
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+Common custom classes:
+- `.btn`, `.btn-active` – Buttons/paging
+- `.phone-card`, `.fav-btn` – Card/favorite controls
+- `.main-content`, `.navbar` – Layout/navigation
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+## Accessibility Notes
+
+- Search box announces results live (screen readers).
+- Use Tab/arrow keys to navigate cards; favorite/unfavorite with star buttons (Enter/Space).
+- All pagination/controls have accessible labels.
+
+## Known Limitations
+
+- No backend/API: All data is static from `src/data/phones.json`.
+- Images must be placed in `/public/assets/`.
+- Not a PWA; no offline support.
+- No advanced filters/sorting (only by name).
+- Pagination is static (no infinite scroll).
 
 ## Learn More
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Check the [React documentation](https://reactjs.org/) for further customization tips.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
