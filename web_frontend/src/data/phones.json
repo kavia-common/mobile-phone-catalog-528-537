@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "name": "Galaxy S21",
+    "image": "/assets/s21.jpg",
+    "shortDescription": "Samsung's flagship with pro-grade camera and dynamic AMOLED display."
+  },
+  {
+    "id": "2",
+    "name": "iPhone 14 Pro",
+    "image": "/assets/iphone14pro.jpg",
+    "shortDescription": "Apple's latest powerhouse with A16 Bionic and Dynamic Island."
+  },
+  {
+    "id": "3",
+    "name": "Google Pixel 7",
+    "image": "/assets/pixel7.jpg",
+    "shortDescription": "Clean Android experience with top-tier camera and Tensor chip."
+  },
+  {
+    "id": "4",
+    "name": "OnePlus 11",
+    "image": "/assets/oneplus11.jpg",
+    "shortDescription": "Superfast charging, snappy performance, and vivid AMOLED display."
+  },
+  {
+    "id": "5",
+    "name": "Xiaomi 13",
+    "image": "/assets/xiaomi13.jpg",
+    "shortDescription": "Ultra-clear Leica camera and premium design at a compelling price."
+  },
+  {
+    "id": "6",
+    "name": "Sony Xperia 5 IV",
+    "image": "/assets/xperia5.jpg",
+    "shortDescription": "Compact flagship for creators, with pro video tools and OLED."
+  }
+]
